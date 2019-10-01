@@ -66,7 +66,7 @@
 <a name="analogues"/>
 
 ## 1.3 Аналоги
- Функции |Kitchen Stories| MealBoard | SideChef 
+ Функции |[Kitchen Stories](https://play.google.com/store/apps/details?id=com.ajnsnewmedia.kitchenstories)| [MealBoard](http://itunes.apple.com/WebObjects/MZStore.woa/wa/viewSoftware?id=333425918&mt=8) | [SideChef](https://play.google.com/store/apps/details?id=com.sidechef.sidechef) 
 --- | :-: | :-: | :-:
 Доступно на Android |+|-|+
 Поддержка русского языка | +|-|-
@@ -81,7 +81,7 @@
 <a name="software_interfaces"/>
 
 ## 2.1 Программные интерфейсы
-Приложение использует API Recipe Puppy.
+Приложение использует API [Recipe Puppy](http://www.recipepuppy.com/).
 
 <a name="user_interface"/>
 
@@ -204,6 +204,7 @@
 
 ## 3.2 Нефункциональные требования
 * Интернет соединение
+* Внешний интерфейс API [Recipe Puppy](http://www.recipepuppy.com/)
 
 <a name="quality_attributes"/>
 
