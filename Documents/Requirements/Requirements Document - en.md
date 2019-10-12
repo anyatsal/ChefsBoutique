@@ -1,229 +1,229 @@
-# Требования к проекту
+# Project requirements
 ---
 
-# Содержание
-1 [Введение](#intro)  
-1.1 [Назначение](#appointment)  
-1.2 [Бизнес-требования](#business_requirements)  
-1.2.1 [Исходные данные](#initial_data)  
-1.2.2 [Возможности бизнеса](#business_opportunities)  
-1.2.3 [Границы проекта](#project_boundary)  
-1.3 [Аналоги](#analogues)  
-2 [Требования пользователя](#user_requirements)  
-2.1 [Программные интерфейсы](#software_interfaces)  
-2.2 [Интерфейс пользователя](#user_interface)  
-2.3 [Характеристики пользователей](#user_specifications)  
-2.3.1 [Аудитория приложения](#application_audience)   
-2.4 [Предположения и зависимости](#assumptions_and_dependencies)  
-3 [Системные требования](#system_requirements)  
-3.1 [Функциональные требования](#functional_requirements)  
-3.1.1 [Основные функции](#main_functions)   
-3.1.1.1 [Вход пользователя в приложение](#user_login)  
-3.1.1.2 [Регистрация пользователя](#user_sign_up)  
-3.1.1.3 [Стартовое окно приложения. Просмотр сохраненных рецептов вользователя](#show_start_page)  
-3.1.1.4 [Просмотр рецепта](#show_recipe)  
-3.1.1.5 [Поиск рецепта по ингредиентам](#search_recipe_by_ingredients)  
-3.1.1.6 [Поиск рецепта по названию](#search_recipe_by_name)  
-3.1.1.7 [Создание своего рецепта](#create_recipe)  
-3.2 [Нефункциональные требования](#non-functional_requirements)  
-3.2.1 [Атрибуты качества](#quality_attributes)  
-3.2.1.1 [Требования к удобству использования](#requirements_for_ease_of_use)  
-3.2.1.2 [Требования к безопасности](#security_requirements)  
-3.2.2 [Ограничения](#restrictions)  
+# Content
+1 [Introduction](#intro)  
+1.1 [Purpose](#appointment)  
+1.2 [Business requirements](#business_requirements)  
+1.2.1 [Source data](#initial_data)  
+1.2.2 [Business opportunities](#business_opportunities)  
+1.2.3 [Project boundaries](#project_boundary)  
+1.3 [Analogs](#analogues)  
+2 [User requirements](#user_requirements)  
+2.1 [Software interfaces](#software_interfaces)  
+2.2 [User interface](#user_interface)  
+2.3 [User specifications](#user_specifications)  
+2.3.1 [Application audience](#application_audience)   
+2.4 [Assumptions and dependencies](#assumptions_and_dependencies)  
+3 [System requirements](#system_requirements)  
+3.1 [Functional requirements](#functional_requirements)  
+3.1.1 [Main functions](#main_functions)   
+3.1.1.1 [User login](#user_login)  
+3.1.1.2 [User sign up](#user_sign_up)  
+3.1.1.3 [The start page of the application. View saved user recipes](#show_start_page)  
+3.1.1.4 [View recipe](#show_recipe)  
+3.1.1.5 [Recipe search by ingredients](#search_recipe_by_ingredients)  
+3.1.1.6 [Recipe search by name](#search_recipe_by_name)  
+3.1.1.7 [Creating a new recipe](#create_recipe)  
+3.2 [Non-functional requirements](#non-functional_requirements)  
+3.2.1 [Quality attributes](#quality_attributes)  
+3.2.1.1 [Ease of use requirements](#requirements_for_ease_of_use)  
+3.2.1.2 [Security Requirements](#security_requirements)  
+3.2.2 [Restrictions](#restrictions)  
 
-### Глоссарий
-* SQLite — компактная встраиваемая реляционная база данных, которая поддерживает достаточно полный набор команд SQL и доступна в исходных кодах (на языке C). Исходные коды SQLite находятся в public domain, то есть вообще никаких ограничений на использование.
-* Firebase — платформа для построения Android-, iOS- и мобильных веб-приложений. База данных позволяет работать с данными, которые хранятся как JSON, синхронизируются в реальном времени и доступны при отсутствии интернета.
-* Material Design (рус. Материальный дизайн) — стиль дизайна программного обеспечения и приложений, разработанный компанией Google. Поверхности и края элементов в данном направлении дизайна создают визуальные образы и сигналы, которые передают подсказки и помогают интуитивно ориентироваться, как если бы это происходило в реальном мире.
+### Glossary
+* SQLite — is a compact embedded relational database that supports a fairly complete set of SQL commands and is available in source code (in C). The source code for SQLite is in the public domain, meaning there are no usage restrictions at all.
+* Firebase — is a platform for building Android, iOS and mobile web applications. The database allows you to work with data that is stored as JSON, synchronized in real time and available in the absence of the Internet.
+* Material Design — is a style of software and application design developed by Google. The surfaces and edges of elements in this direction of design create visual images and signals that transmit hints and help you to orient yourself intuitively, as if it were happening in the real world.
 <a name="intro"/>
 
-# 1 Введение
+# 1 Introduction
 
 <a name="appointment"/>
 
-## 1.1 Назначение
-В этом документе описаны функциональные и нефункциональные требования к мобильному приложению «ChefsBoutique» для операционной системы Android.
+## 1.1 Purpose
+This document describes the functional and non-functional requirements for the ChefsBoutique mobile application for the Android operating system.
 
 <a name="business_requirements"/>
 
-## 1.2 Бизнес-требования
+## 1.2 Business requirements
 
 <a name="initial_data"/>
 
-### 1.2.1 Исходные данные
-Книги рецептов пригодятся всем, кто любит готовить вкусную и полезную пищу. Но прошли те времена, когда мы использовали книги рецептов, чтобы найти тот самый секретный рецепт. Теперь приложения для смартфонов играют важную роль на кухне, помогая находить разные типы кулинарных рецептов и готовить вкусные блюда.
+### 1.2.1 Source data
+Recipe books come in handy for anyone who likes to cook tasty and wholesome food. But the days have gone by when we used recipe books to find that secret recipe. Smartphone applications now play an important role in the kitchen, helping to find different types of recipes and prepare delicious dishes.
 
 <a name="business_opportunities"/>
 
-### 1.2.2 Возможности бизнеса
-Многие люди, которые хотят и любят готовить, желают иметь приложение, которое предоставляет доступ к своему аккаунту, своим любимым рецептам, а также позволяет найти интересный рецепт. Подобное приложение позволит им добавить новый рецепт, получить быстрый доступ к своим сохраненным рецептам, а также найти новый интересный рецепт.
+### 1.2.2 Business opportunities
+Many people who want and love to cook, want to have an application that provides access to their account, their favorite recipes, and also allows you to find an interesting recipe. Such an application will allow them to add a new recipe, get quick access to their saved recipes, and also find a new interesting recipe.
 
 <a name="project_boundary"/>
 
-### 1.2.3 Границы проекта
-Приложение «ChefsBoutique» позволяет зарегистрированным пользователям создавать новые рецепты, получать доступ к сохраненным, а также искать новые рецепты.
+### 1.2.3 Project Boundaries
+The ChefsBoutique app allows registered users to create new recipes, access saved ones, and search for new recipes.
 
 <a name="analogues"/>
 
-## 1.3 Аналоги
- Функции |[Kitchen Stories](https://play.google.com/store/apps/details?id=com.ajnsnewmedia.kitchenstories)| [MealBoard](http://itunes.apple.com/WebObjects/MZStore.woa/wa/viewSoftware?id=333425918&mt=8) | [SideChef](https://play.google.com/store/apps/details?id=com.sidechef.sidechef) 
+## 1.3 Analogs
+ Functions |[Kitchen Stories](https://play.google.com/store/apps/details?id=com.ajnsnewmedia.kitchenstories)| [MealBoard](http://itunes.apple.com/WebObjects/MZStore.woa/wa/viewSoftware?id=333425918&mt=8) | [SideChef](https://play.google.com/store/apps/details?id=com.sidechef.sidechef) 
 --- | :-: | :-: | :-:
-Доступно на Android |+|-|+
-Поддержка русского языка | +|-|-
-Бесплатно |+|-|-
-Создание своего рецепта | -|+|+
-Создание списка покупок | +|+|+
+Available on Android |+|-|+
+Russian language support | +|-|-
+Is free |+|-|-
+Create your own recipe | -|+|+
+Create Shopping List | +|+|+
 
 <a name="user_requirements"/>
 
-# 2 Требования пользователя
+# 2 User requirements
 
 <a name="software_interfaces"/>
 
-## 2.1 Программные интерфейсы
-Приложение использует API [Recipe Puppy](http://www.recipepuppy.com/).
+## 2.1 Software interfaces
+Application uses API [Recipe Puppy](http://www.recipepuppy.com/).
 
 <a name="user_interface"/>
 
-## 2.2 Интерфейс пользователя  
-Экран авторизации.  
-![Экран авторизации](../../Images/Mockups/Login.png)  
-Экран регистрации.  
-![Экран регистрации](../../Images/Mockups/SignUp.png)  
-Экран главного окна.  
-![Экран главного окна](../../Images/Mockups/StartPage.png)  
-Экран рецепта.  
-![Экран рецепта](../../Images/Mockups/RecipeItem.png)  
-Экран поиска рецепта по ингредиентам.  
-![Экран поиска рецепта по ингредиентам](../../Images/Mockups/SearchByIngredients.png)  
-Экран поиска рецепта по названию.  
-![Экран поиска рецепта по названию](../../Images/Mockups/SearchByName.png)
-Экран создания рецепта.  
-![Экран создания рецепта](../../Images/Mockups/AddingRecipe.png)
+## 2.2 User interface  
+Login screen.  
+![Login screen](../../Images/Mockups/Login.png)  
+Sign up screen.  
+![Sign up screen](../../Images/Mockups/SignUp.png)  
+The screen of the main window.  
+![The screen of the main window](../../Images/Mockups/StartPage.png)  
+Recipe Screen.  
+![Recipe Screen](../../Images/Mockups/RecipeItem.png)  
+Recipe search screen by ingredients.  
+![Recipe search screen by ingredients](../../Images/Mockups/SearchByIngredients.png)  
+Recipe search screen by name.  
+![Recipe search screen by name](../../Images/Mockups/SearchByName.png)
+Recipe creation screen.  
+![Recipe creation screen](../../Images/Mockups/AddingRecipe.png)
 
 <a name="user_specifications"/>
 
-## 2.3 Характеристики пользователей
+## 2.3 User specifications
 
 <a name="user_classes"/>
 
-### 2.3.1 Аудитория приложения
+### 2.3.1 Application Audience
 
-Люди, которые хотят изменить свою кулинарную жизнь и внести разнообразие в привычный рацион.
+People who want to change their culinary life and add variety to their usual diet.
 <a name="assumptions_and_dependencies"/>
 
-## 2.4 Предположения и зависимости
-1. Поиск новых рецептов не работает при отсутствии подключения к Интернету.
+## 2.4 Assumptions and Dependencies
+1. The search for new recipes does not work in the absence of an Internet connection.
 
 <a name="system_requirements"/>
 
-# 3 Системные требования
+# 3 System Requirements
 
 <a name="functional_requirements"/>
 
-## 3.1 Функциональные требования
+## 3.1 Functional Requirements
 
 <a name="main_functions"/>
 
-### 3.1.1 Основные функции
+### 3.1.1 Main functions
 
 <a name="user_login"/>
 
-#### 3.1.1.1 Вход пользователя в приложение
-**Описание.** Пользователь должен использовать существующий аккаунт для входа в приложение.
+#### 3.1.1.1 User login to the application
+** Description. ** The user must use an existing account to enter the application.
 
-| Функция | Требования | 
+| Function  | Requirements  | 
 |:---|:---|
-| Вход в приложение, используя существующий аккаунт | При успешной аутентификации приложение должно предоставить доступ к основным функциям, иначе, при ошибки аутентификации, приложение должно сообщить об этом пользователю.   |
+| Logging to the application using an existing account | If authentication is successful, the application must provide access to the basic functions, otherwise, in case of authentication errors, the application must inform the user about this.   |
 
 <a name="user_sign_up"/>
 
-#### 3.1.1.2 Регистрация пользователя
-**Описание.** Если у пользователя нет аккаунта, для доступа к основным функциям приложения, он должен зарегистрироваться.
+#### 3.1.1.2 User registration
+** Description. ** If the user does not have an account, he must register to access the main functions of the application.
 
-| Функция | Требования | 
+| Function | Requirements | 
 |:---|:---|
-| Создание учетной записи пользователя | При успешной регистрации пользователь должен попасть на главный экран приложения   |
-| Выбор раздела в меню | При выборе раздела, приложение должно открыть соответствующий раздел и предоставить актуальную информацию, соответствующую разделу   |
+| Creating user account | Upon successful registration, the user must go to the main screen of the application   |
+| Selecting a section in the menu | When choosing a section, the application should open the corresponding section and provide relevant information relevant to the section   |
 
 <a name="show_start_page"/>
 
-#### 3.1.1.3 Просмотр сохраненных рецептов вользователя
-**Описание.** Пользователь должен иметь возможность просматривать список своих сохраненных рецептов, а также переход к конкретному из них.
+#### 3.1.1.3 Viewing saved user recipes
+**Description.** The user should be able to view a list of his saved recipes, as well as go to a specific one.
 
-| Функция | Требования | 
+| Function | Requirements | 
 |:---|:---|
-| Отображение рецептов пользователя | Отображение диалогов должно быть оформлено в виде списка, с краткой информацией о рецепте: название рецепта, краткое описание.   |
-| Выбор конкретного рецепта | Открытие окна, в котором отображается подробная информация о выбранном рецепте    |
+| Showing user recipes | Display dialogs should be in the form of a list, with brief information about the recipe: the name of the recipe, a brief description.   |
+| Choosing a specific recipe | Opening a window that displays detailed information about the selected recipe    |
 
 <a name="show_recipe"/>
 
-#### 3.1.1.4 Просмотр рецепта
-**Описание.** Пользователь должен иметь возможность просматривать отдельные рецепты.
+#### 3.1.1.4 Show recipe
+**Description.** The user must be able to view individual recipes.
 
-| Функция | Требования | 
+| Function | Requirements | 
 |:---|:---|
-| Отображение рецепта | Информация о выбранном рецепте должна содержать название, фото, необходимые ингредиенты, время приготовления, описание|
+| Display recipe | Information about the selected recipe should contain the name, photo, necessary ingredients, cooking time, description|
 
 <a name="search_recipe_by_ingredients"/>
 
-#### 3.1.1.5 Поиск рецепта по ингредиентам
-**Описание.** Пользователь должен иметь возможность поиска рецепта по ингредиентам.
+#### 3.1.1.5 Recipe search by ingredients
+**Description.** The user must be able to search for the recipe for the ingredients.
 
-| Функция | Требования | 
+| Function | Requirements | 
 |:---|:---|
-| Ввод желаемых ингредиентов | Отображаются желаемые ингредиенты. Если пользователь ввел их    |
-| Ввод нежелательных ингредиентов | Отображаются нежелательные ингредиенты. Если пользователь ввел их    |
-| Поиск рецепта | При нажатии "Search" должен быть показан список найденных рецептов |
+| Entering the desired ingredients | The desired ingredients are displayed. In case the user entered them    |
+| Entering unwanted ingredients | Unwanted ingredients are displayed. In case the user entered them    |
+| Recipe search | When you click "Search" should be shown a list of found recipes |
 
 <a name="search_recipe_by_name"/>
 
-#### 3.1.1.6 Поиск рецепта по названию
-**Описание.** Пользователь должен иметь возможность поиска рецепта по названию.
+#### 3.1.1.6 Recipe search by name
+**Description.** The user must be able to search for the recipe by name.
 
-| Функция | Требования | 
+| Function | Requirements | 
 |:---|:---|
-| Ввод названия рецепта | Отображается название рецепта. Если пользователь ввел его |
-| Поиск рецепта | При нажатии "Search" должен быть показан список найденных рецептов |
+| Entering the name of the recipe | The name of the recipe is displayed. In case the user entered it |
+| Recipe Search | When you click "Search" should be shown a list of found recipes |
 
 <a name="create_recipe"/>
 
-#### 3.1.1.7 Создание нового рецепта
-**Описание.** Пользователь должен иметь возможность создания своего рецепта.
+#### 3.1.1.7 Creating a new recipe
+**Description.** The user must be able to create his own recipe.
 
-| Функция | Требования | 
+| Function | Requirements | 
 |:---|:---|
-| Ввод названия рецепта | Отображается название рецепта. Если пользователь ввел его |
-| Ввод ингредиентов | Отображается ингредиентов. Если пользователь ввел его |
-| Выбор категории рецепта | Отображается выбранного пункта |
-| Ввод описания рецепта | Отображается описание рецепта. Если пользователь ввел его |
-| Выбор кнопки сохранения | Сохранение рецепта. Открытие окна сохраненных пользователем рецептов |
-| Выбор кнопки возврата | Возврат к предыдущей странице |
+| Entering the name of the recipe | The name of the recipe is displayed. In case the user entered it |
+| Entering ingredients | Displays ingredients. In case the user entered it |
+| Recipe category selection | Displays the selected item |
+| Entering recipe description | A description of the recipe is displayed. In case the user entered it |
+| Selecting save button | Preservation of the recipe. Opening a screen of user-saved recipes |
+| Selecting back button | Return to previous page |
 
 <a name="non-functional_requirements"/>
 
-## 3.2 Нефункциональные требования
-* Интернет соединение
-* Внешний интерфейс API [Recipe Puppy](http://www.recipepuppy.com/)
+## 3.2 Non-functional requirements
+* Internet connection
+* External API [Recipe Puppy](http://www.recipepuppy.com/)
 
 <a name="quality_attributes"/>
 
-### 3.2.1 Атрибуты качества
+### 3.2.1 Quality attributes
 
 <a name="requirements_for_ease_of_use"/>
 
-#### 3.2.1.1 Требования к удобству использования
-1. Использование Material Design;
-2. Плавный интерфейс;
-3. Разделы должны быть подписаны.
+#### 3.2.1.1 Ease of use requirements
+1. Using Material Design;
+2. Smooth interface;
+3. Sections must be signed.
 
 <a name="security_requirements"/>
 
-#### 3.2.1.2 Требования к безопасности
-Приложение должно хранить данные пользователя в Firebase, и доступ к нему должно иметь только это приложение.
+#### 3.2.1.2 Security requirements
+The application should store user data in Firebase, and only this application should have access to it.
 
 <a name="restrictions"/>
 
-### 3.2.2 Ограничения
-* Приложение доступно для смартфонов с версией Android 6.0 и выше
-* Приложение реализована на языке Kotlin
+### 3.2.2 Restrictions
+* The application is available for smartphones with Android 6.0 and higher
+* The application is written in the Kotlin language
