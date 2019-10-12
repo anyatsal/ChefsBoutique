@@ -97,7 +97,7 @@ Recipe Screen.
 Recipe search screen by ingredients.  
 ![Recipe search screen by ingredients](../../Images/Mockups/SearchByIngredients.png)  
 Recipe search screen by name.  
-![Recipe search screen by name](../../Images/Mockups/SearchByName.png)
+![Recipe search screen by name](../../Images/Mockups/SearchByName.png)  
 Recipe creation screen.  
 ![Recipe creation screen](../../Images/Mockups/AddingRecipe.png)
 
