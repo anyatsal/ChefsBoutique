@@ -1,3 +1,17 @@
 <resources>
     <string name="app_name">ChefsBoutique</string>
+
+    <string name="action_favorite">like</string>
+    <string name="sign_up">Sign up</string>
+    <string name="description">boutique</string>
+    <string name="sign_in">Sign in</string>
+    <string name="user_name">Username</string>
+    <string name="password">Password</string>
+    <string name="login">Login</string>
+    <string name="confirm_password">Confirm password</string>
+    <string name="already_registered">Cancel</string>
+    <string name="register">Create account</string>
+    <string name="email">Email</string>
+    <string name="chefsBoutique">Chefs</string>
+    <string name="action_search">Search</string>
 </resources>
