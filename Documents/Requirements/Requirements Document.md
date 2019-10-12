@@ -97,7 +97,7 @@
 Экран поиска рецепта по ингредиентам.  
 ![Экран поиска рецепта по ингредиентам](../../Images/Mockups/SearchByIngredients.png)  
 Экран поиска рецепта по названию.  
-![Экран поиска рецепта по названию](../../Images/Mockups/SearchByName.png)
+![Экран поиска рецепта по названию](../../Images/Mockups/SearchByName.png)  
 Экран создания рецепта.  
 ![Экран создания рецепта](../../Images/Mockups/AddingRecipe.png)
 
