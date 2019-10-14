@@ -24,7 +24,7 @@
 
 ### 4. Создание нового рецепта<a name="4"></a>
 
-![Создание нового рецепта](https://raw.githubusercontent.com/anyatsal/ChefsBoutique/master/Documents/Diagrams/Sequence/Sequence/AddingRecipe.png)
+![Создание нового рецепта](https://raw.githubusercontent.com/anyatsal/ChefsBoutique/master/Documents/Diagrams/Sequence/Images/AddingRecipe.png)
 
 ### 5. Поиск рецепта по названию<a name="5"></a>
 
