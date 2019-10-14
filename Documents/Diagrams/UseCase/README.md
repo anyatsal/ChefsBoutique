@@ -1,6 +1,6 @@
 # Диаграмма вариантов использования
 
-![Диаграмма вариантов использования](https://raw.githubusercontent.com/anyatsal/ChefaBoutique/master/Documents/Diagrams/UseCase/UseCase.png)
+![Диаграмма вариантов использования](https://raw.githubusercontent.com/anyatsal/ChefsBoutique/master/Documents/Diagrams/UseCase/UseCase.png)
 
 Сценарии для каждого варианта использования описаны в [потоке событий](../UseCase/Flow%20of%20Events.md).
 
