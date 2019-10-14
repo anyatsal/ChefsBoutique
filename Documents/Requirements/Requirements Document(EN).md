@@ -1,33 +1,33 @@
-# Project requirements
+# Project Requirements
 ---
 
-# Content
+# Contents
 1 [Introduction](#intro)  
 1.1 [Purpose](#appointment)  
-1.2 [Business requirements](#business_requirements)  
+1.2 [Business Requirements](#business_requirements)  
 1.2.1 [Source data](#initial_data)  
-1.2.2 [Business opportunities](#business_opportunities)  
-1.2.3 [Project boundaries](#project_boundary)  
+1.2.2 [Business Opportunities](#business_opportunities)  
+1.2.3 [Project Boundaries](#project_boundary)  
 1.3 [Analogs](#analogues)  
-2 [User requirements](#user_requirements)  
-2.1 [Software interfaces](#software_interfaces)  
-2.2 [User interface](#user_interface)  
-2.3 [User specifications](#user_specifications)  
-2.3.1 [Application audience](#application_audience)   
-2.4 [Assumptions and dependencies](#assumptions_and_dependencies)  
-3 [System requirements](#system_requirements)  
-3.1 [Functional requirements](#functional_requirements)  
-3.1.1 [Main functions](#main_functions)   
-3.1.1.1 [User login](#user_login)  
-3.1.1.2 [User sign up](#user_sign_up)  
+2 [User Requirements](#user_requirements)  
+2.1 [Software Interfaces](#software_interfaces)  
+2.2 [User Interface](#user_interface)  
+2.3 [User Specifications](#user_specifications)  
+2.3.1 [Application Audience](#application_audience)   
+2.4 [Assumptions and Dependencies](#assumptions_and_dependencies)  
+3 [System Requirements](#system_requirements)  
+3.1 [Functional Requirements](#functional_requirements)  
+3.1.1 [Main Functions](#main_functions)   
+3.1.1.1 [User Login](#user_login)  
+3.1.1.2 [User Registration](#user_sign_up)  
 3.1.1.3 [The start page of the application. View saved user recipes](#show_start_page)  
 3.1.1.4 [View recipe](#show_recipe)  
 3.1.1.5 [Recipe search by ingredients](#search_recipe_by_ingredients)  
 3.1.1.6 [Recipe search by name](#search_recipe_by_name)  
 3.1.1.7 [Creating a new recipe](#create_recipe)  
-3.2 [Non-functional requirements](#non-functional_requirements)  
-3.2.1 [Quality attributes](#quality_attributes)  
-3.2.1.1 [Ease of use requirements](#requirements_for_ease_of_use)  
+3.2 [Non-functional Requirements](#non-functional_requirements)  
+3.2.1 [Quality Attributes](#quality_attributes)  
+3.2.1.1 [Ease of use Requirements](#requirements_for_ease_of_use)  
 3.2.1.2 [Security Requirements](#security_requirements)  
 3.2.2 [Restrictions](#restrictions)  
 
@@ -46,7 +46,7 @@ This document describes the functional and non-functional requirements for the C
 
 <a name="business_requirements"/>
 
-## 1.2 Business requirements
+## 1.2 Business Requirements
 
 <a name="initial_data"/>
 
@@ -55,7 +55,7 @@ Recipe books come in handy for anyone who likes to cook tasty and wholesome food
 
 <a name="business_opportunities"/>
 
-### 1.2.2 Business opportunities
+### 1.2.2 Business Opportunities
 Many people who want and love to cook, want to have an application that provides access to their account, their favorite recipes, and also allows you to find an interesting recipe. Such an application will allow them to add a new recipe, get quick access to their saved recipes, and also find a new interesting recipe.
 
 <a name="project_boundary"/>
@@ -65,7 +65,7 @@ The ChefsBoutique app allows registered users to create new recipes, access save
 
 <a name="analogues"/>
 
-## 1.3 Analogs
+## 1.3 Analogues
  Functions |[Kitchen Stories](https://play.google.com/store/apps/details?id=com.ajnsnewmedia.kitchenstories)| [MealBoard](http://itunes.apple.com/WebObjects/MZStore.woa/wa/viewSoftware?id=333425918&mt=8) | [SideChef](https://play.google.com/store/apps/details?id=com.sidechef.sidechef) 
 --- | :-: | :-: | :-:
 Available on Android |+|-|+
@@ -76,16 +76,16 @@ Create Shopping List | +|+|+
 
 <a name="user_requirements"/>
 
-# 2 User requirements
+# 2 User Requirements
 
 <a name="software_interfaces"/>
 
-## 2.1 Software interfaces
+## 2.1 Software Interfaces
 Application uses API [Recipe Puppy](http://www.recipepuppy.com/).
 
 <a name="user_interface"/>
 
-## 2.2 User interface  
+## 2.2 User Interface  
 Login screen.  
 ![Login screen](../../Images/Mockups/Login.png)  
 Sign up screen.  
@@ -103,7 +103,7 @@ Recipe creation screen.
 
 <a name="user_specifications"/>
 
-## 2.3 User specifications
+## 2.3 User Specifications
 
 <a name="user_classes"/>
 
@@ -129,7 +129,7 @@ People who want to change their culinary life and add variety to their usual die
 
 <a name="user_login"/>
 
-#### 3.1.1.1 User login to the application
+#### 3.1.1.1 User Login to the application
 ** Description. ** The user must use an existing account to enter the application.
 
 | Function  | Requirements  | 
@@ -202,24 +202,24 @@ People who want to change their culinary life and add variety to their usual die
 
 <a name="non-functional_requirements"/>
 
-## 3.2 Non-functional requirements
+## 3.2 Non-functional Requirements
 * Internet connection
 * External API [Recipe Puppy](http://www.recipepuppy.com/)
 
 <a name="quality_attributes"/>
 
-### 3.2.1 Quality attributes
+### 3.2.1 Quality Attributes
 
 <a name="requirements_for_ease_of_use"/>
 
-#### 3.2.1.1 Ease of use requirements
+#### 3.2.1.1 Ease of use Requirements
 1. Using Material Design;
 2. Smooth interface;
 3. Sections must be signed.
 
 <a name="security_requirements"/>
 
-#### 3.2.1.2 Security requirements
+#### 3.2.1.2 Security Requirements
 The application should store user data in Firebase, and only this application should have access to it.
 
 <a name="restrictions"/>
