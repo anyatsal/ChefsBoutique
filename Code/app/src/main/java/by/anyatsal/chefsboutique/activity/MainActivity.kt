@@ -1,6 +1,5 @@
 package by.anyatsal.chefsboutique.activity
 
-import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
 import android.view.View
@@ -34,12 +33,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     private fun isLogged() {
         mAuth?.currentUser?.uid?.let {
             changeFragment(RecipeFragment())
-        } ?: showLogin()
-    }
-
-    private fun showLogin() {
-        val intent = Intent(this, LoginActivity::class.java)
-        startActivity(intent)
+        } ?: startActivity(LoginActivity.getLaunchIntent(this))
     }
 
     private fun changeFragment(f: Fragment, cleanStack: Boolean = false) {
@@ -71,8 +65,8 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     override fun onClick(v: View?) {
+        startActivity(LoginActivity.getLaunchIntent(this))
         mAuth?.signOut()
-        showLogin()
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {

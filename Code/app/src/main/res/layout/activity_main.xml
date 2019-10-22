@@ -9,10 +9,9 @@
 
     <FrameLayout
         android:id="@+id/container"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-    </FrameLayout>
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
 
     <com.google.android.material.bottomappbar.BottomAppBar
         android:id="@+id/bottom_app_bar"
@@ -22,7 +21,6 @@
         app:fabCradleMargin="4dp"
         app:fabAlignmentMode="center"
         app:hideOnScroll="true"
-        app:navigationIcon="@drawable/ic_menu_24dp"
         app:layout_scrollFlags="scroll|enterAlways"/>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton

@@ -14,4 +14,10 @@
     <string name="email">Email</string>
     <string name="chefsBoutique">Chefs</string>
     <string name="action_search">Search</string>
+    <string name="search_by_name">Search by name</string>
+    <string name="search_by_ingredients">Search by ingredients</string>
+    <string name="search">Search</string>
+    <string name="recipe_name">Recipe name</string>
+    <string name="exclude_ingredients">Exclude ingredients</string>
+    <string name="desired_ingredients">Desired ingredients</string>
 </resources>
