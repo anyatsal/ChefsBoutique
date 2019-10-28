@@ -20,4 +20,7 @@
     <string name="recipe_name">Recipe name</string>
     <string name="exclude_ingredients">Exclude ingredients</string>
     <string name="desired_ingredients">Desired ingredients</string>
+    <string name="ingredients">Ingredients</string>
+    <string name="recipe_description">Description</string>
+    <string name="recipe_image">Recipe image</string>
 </resources>

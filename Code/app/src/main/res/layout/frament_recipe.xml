@@ -7,59 +7,60 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingTop="36dp"
-        android:paddingStart="36dp"
-        android:paddingEnd="36dp">
+        android:paddingTop="16dp"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp">
 
         <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/img_create_recipe"
-            android:layout_width="wrap_content"
-            android:layout_height="0dp"
-            android:contentDescription="@string/recipe_image"
+            android:id="@+id/img_recipe"
+            android:layout_width="match_parent"
+            android:layout_height="320dp"
+            android:contentDescription="@null"
             android:scaleType="centerCrop"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:src="@tools:sample/avatars"/>
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/create_recipe_name"
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/recipe_name"
             android:layout_marginTop="8dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/recipe_name"
+            tools:text="@tools:sample/lorem"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/img_create_recipe" />
+            app:layout_constraintTop_toBottomOf="@+id/img_recipe" />
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/create_recipe_ingredients"
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/recipe_ingredients"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:hint="@string/ingredients"
+            tools:text="@tools:sample/lorem"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/create_recipe_name" />
+            app:layout_constraintTop_toBottomOf="@+id/recipe_name" />
 
-        <androidx.appcompat.widget.AppCompatSpinner
-            android:id="@+id/create_recipe_category"
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/recipe_category"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
+            tools:text="@tools:sample/lorem"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/create_recipe_ingredients" />
+            app:layout_constraintTop_toBottomOf="@+id/recipe_ingredients" />
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/create_recipe_description"
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/recipe_description"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/create_recipe_category"
-            android:hint="@string/recipe_description" />
+            app:layout_constraintTop_toBottomOf="@+id/recipe_category"
+            tools:text="@tools:sample/lorem/random" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

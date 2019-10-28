@@ -5,6 +5,8 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'com.google.gms.google-services'
 
+def FOOD2FORK_API_KEY = API_KEY ?: "Enter API-KEY in gradle.properties"
+
 android {
     compileSdkVersion 29
     buildToolsVersion "29.0.2"
@@ -15,12 +17,21 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        each { type ->
+            type.buildConfigField 'String', "ApiKey", FOOD2FORK_API_KEY
+
+            type.resValue 'string', "api_key", FOOD2FORK_API_KEY
+        }
     }
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
+    }
+    androidExtensions {
+        experimental = true
     }
 }
 
@@ -34,11 +45,17 @@ dependencies {
     androidTestImplementation 'androidx.test:runner:1.2.0'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
 
-    implementation 'com.google.android.material:material:1.1.0-beta01'
+    implementation 'com.google.android.material:material:1.2.0-alpha01'
     implementation 'com.squareup.picasso:picasso:2.71828'
     implementation 'androidx.recyclerview:recyclerview:1.0.0'
-    implementation 'androidx.fragment:fragment:1.2.0-beta02'
-    implementation 'com.google.firebase:firebase-core:17.2.0'
+    implementation 'androidx.fragment:fragment:1.2.0-rc01'
+    implementation 'com.google.firebase:firebase-core:17.2.1'
     implementation 'com.google.firebase:firebase-auth:19.1.0'
     implementation 'com.google.firebase:firebase-database:19.2.0'
+
+    implementation "com.squareup.retrofit2:retrofit:2.5.0"
+    implementation "com.squareup.retrofit2:adapter-rxjava2:2.4.0"
+    implementation "com.squareup.retrofit2:converter-gson:2.3.0"
+
+    implementation "io.reactivex.rxjava2:rxandroid:2.1.1"
 }

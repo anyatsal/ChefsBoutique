@@ -4,14 +4,15 @@
     <style name="AppTheme" parent="Theme.MaterialComponents.NoActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
-        <!--<item name="colorPrimaryDark">@color/colorPrimaryDark</item>-->
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorSecondary">@color/colorSecondary</item>
+        <!--<item name="colorSecondary">@color/colorSecondary</item>-->
         <item name="colorPrimaryVariant">@color/colorPrimaryVariant</item>
         <item name="colorError">@color/colorError</item>
         <item name="colorBackgroundFloating">@color/colorBackground</item>
         <item name="colorOnBackground">@color/colorOnBackground</item>
         <item name="colorOnPrimary">@color/colorOnPrimary</item>
-        <item name="colorOnSecondary">@color/colorOnSecondary</item>
+        <!--<item name="colorOnSecondary">@color/colorOnSecondary</item>-->
         <item name="colorOnSurface">@color/colorOnSurface</item>
         <item name="colorOnError">@color/colorOnError</item>
         <!--<item name="colorButtonNormal">@color/colorPrimary</item>-->
@@ -31,6 +32,7 @@
     </style>
 
     <style name="EditTextEmail">
+        <item name="android:digits">ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789@.</item>
         <item name="android:textSize">14sp</item>
         <item name="android:singleLine">true</item>
         <item name="android:drawablePadding">8dp</item>

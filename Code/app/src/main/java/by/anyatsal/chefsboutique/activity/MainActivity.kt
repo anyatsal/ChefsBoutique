@@ -1,19 +1,35 @@
 package by.anyatsal.chefsboutique.activity
 
+import android.content.Context
+import android.content.Intent
 import android.os.Bundle
-import android.view.Menu
 import android.view.View
-import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentManager
 import by.anyatsal.chefsboutique.R
-import by.anyatsal.chefsboutique.RecipeFragment
+import by.anyatsal.chefsboutique.data.DBHelper
+import by.anyatsal.chefsboutique.fragment.CreateRecipeFragment
+import by.anyatsal.chefsboutique.fragment.RecipeListFragment
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_main.*
 
-class MainActivity : AppCompatActivity(), View.OnClickListener {
+class MainActivity : BaseActivity() {
 
-    private var mAuth: FirebaseAuth? = null
+    private lateinit var mAuth: FirebaseAuth
+    private lateinit var recipeDBHelper: DBHelper
+
+    companion object {
+
+        fun getLaunchIntent(from: Context) = Intent(from, MainActivity::class.java).apply {
+            addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK)
+        }
+
+        fun changeFragment(context: Context?, fragment: Fragment) {
+            val ft = (context as MainActivity).supportFragmentManager.beginTransaction()
+            ft.replace(R.id.container, fragment)
+            ft.addToBackStack(null)
+            ft.commit()
+        }
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -21,8 +37,12 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
         mAuth = FirebaseAuth.getInstance()
 
-        setSupportActionBar(bottom_app_bar)
+        recipeDBHelper = DBHelper(this)
+
+        //setSupportActionBar(bottom_app_bar)
+
         fab.setOnClickListener(this)
+        bottom_app_bar.setNavigationOnClickListener(this)
     }
 
     override fun onStart() {
@@ -31,28 +51,9 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     private fun isLogged() {
-        mAuth?.currentUser?.uid?.let {
-            changeFragment(RecipeFragment())
+        mAuth.currentUser?.uid?.let {
+            changeFragment(this, RecipeListFragment.newInstance(recipeDBHelper.readAllRecipes()))
         } ?: startActivity(LoginActivity.getLaunchIntent(this))
-    }
-
-    private fun changeFragment(f: Fragment, cleanStack: Boolean = false) {
-        val ft = supportFragmentManager.beginTransaction()
-        if (cleanStack) {
-            clearBackStack()
-        }
-
-        ft.replace(R.id.container, f)
-        ft.addToBackStack(null)
-        ft.commit()
-    }
-
-    private fun clearBackStack() {
-        val manager = supportFragmentManager
-        if (manager.backStackEntryCount > 0) {
-            val first = manager.getBackStackEntryAt(0)
-            manager.popBackStack(first.id, FragmentManager.POP_BACK_STACK_INCLUSIVE)
-        }
     }
 
     override fun onBackPressed() {
@@ -64,14 +65,26 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         }
     }
 
-    override fun onClick(v: View?) {
-        startActivity(LoginActivity.getLaunchIntent(this))
-        mAuth?.signOut()
+    override fun onStop() {
+        fab.visibility = View.GONE
+        super.onStop()
     }
 
-    override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        val inflater = menuInflater
-        inflater.inflate(R.menu.bottom_appbar_menu, menu)
-        return true
+    override fun onResume() {
+        fab.visibility = View.VISIBLE
+        super.onResume()
+    }
+
+    override fun onClick(v: View?) {
+        when(v) {
+            fab -> {
+                changeFragment(this, CreateRecipeFragment.newInstance(recipeDBHelper))
+                //startActivity(LoginActivity.getLaunchIntent(this))
+                //mAuth?.signOut()
+            }
+            else -> {
+                startActivity(SearchActivity.getLaunchIntent(this))
+            }
+        }
     }
 }

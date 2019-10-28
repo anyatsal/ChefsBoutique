@@ -5,10 +5,12 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import by.anyatsal.chefsboutique.R
+import by.anyatsal.chefsboutique.utils.Utils.showMessage
+import by.anyatsal.chefsboutique.utils.Utils.showMessageIfEmpty
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_login.*
 
-class LoginActivity : BaseActivity(), View.OnClickListener {
+class LoginActivity : BaseActivity() {
 
     private lateinit var auth: FirebaseAuth
 
@@ -34,6 +36,10 @@ class LoginActivity : BaseActivity(), View.OnClickListener {
                 when {
                     email.text.isNullOrEmpty() ||
                             password.text.isNullOrEmpty() -> showMessageIfEmpty(v)
+                    !android.util.Patterns.EMAIL_ADDRESS.matcher(email.text.toString()).matches() -> showMessage(
+                        v,
+                        "Please, enter your real email"
+                    )
                     else -> signIn(v, email.text.toString(), password.text.toString())
                 }
             }
@@ -51,10 +57,10 @@ class LoginActivity : BaseActivity(), View.OnClickListener {
         auth.signInWithEmailAndPassword(email, password).addOnCompleteListener { task ->
             if (task.isSuccessful) {
                 showProgressBar()
-                val intentToMain = Intent(this, MainActivity::class.java)
-                startActivity(intentToMain)
+                Intent(this, MainActivity::class.java)
+                startActivity(MainActivity.getLaunchIntent(this))
             } else {
-                showMessage(view, "${task.exception?.message}")
+                showMessage(view, "Error with login, please, try later")
             }
         }
     }

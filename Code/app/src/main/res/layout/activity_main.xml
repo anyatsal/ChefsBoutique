@@ -18,9 +18,11 @@
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:layout_gravity="bottom"
-        app:fabCradleMargin="4dp"
+        app:fabCradleMargin="8dp"
+        app:fabCradleRoundedCornerRadius="16dp"
         app:fabAlignmentMode="center"
         app:hideOnScroll="true"
+        app:navigationIcon="@drawable/ic_search_24dp"
         app:layout_scrollFlags="scroll|enterAlways"/>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton

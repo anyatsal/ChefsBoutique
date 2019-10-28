@@ -4,10 +4,12 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import by.anyatsal.chefsboutique.R
+import by.anyatsal.chefsboutique.utils.Utils.showMessage
+import by.anyatsal.chefsboutique.utils.Utils.showMessageIfEmpty
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_sign_up.*
 
-class SignUpActivity : BaseActivity(), View.OnClickListener {
+class SignUpActivity : BaseActivity() {
 
     private lateinit var auth: FirebaseAuth
 
@@ -33,6 +35,10 @@ class SignUpActivity : BaseActivity(), View.OnClickListener {
                     password.text.toString() != confirm_password.text.toString() -> showMessage(
                         v,
                         "Passwords don't match"
+                    )
+                    !android.util.Patterns.EMAIL_ADDRESS.matcher(email.text.toString()).matches() -> showMessage(
+                        v,
+                        "Please, enter your real email"
                     )
                     else -> verifyUser(v, email.text.toString(), password.text.toString())
                 }
