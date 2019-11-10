@@ -4,7 +4,7 @@ import android.os.Parcelable
 import kotlinx.android.parcel.Parcelize
 
 @Parcelize
-data class Recipe(
+data class RecipeDBItem(
     var name: String? = null,
     var category: String,
     var description: String,

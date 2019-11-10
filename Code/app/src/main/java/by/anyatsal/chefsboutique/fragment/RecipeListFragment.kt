@@ -8,8 +8,8 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
 import by.anyatsal.chefsboutique.R
 import by.anyatsal.chefsboutique.activity.BaseActivity.Companion.changeFragment
-import by.anyatsal.chefsboutique.adapters.RecipeSearchAdapter
-import by.anyatsal.chefsboutique.data.Recipe
+import by.anyatsal.chefsboutique.adapters.RecipeDBAdapter
+import by.anyatsal.chefsboutique.data.RecipeDBItem
 
 class RecipeListFragment : Fragment() {
 
@@ -17,12 +17,12 @@ class RecipeListFragment : Fragment() {
         private const val ARGS_RECIPES = "ARGS_RECIPES"
 
         fun newInstance(
-            recipes: List<Recipe>
+            recipeDBItems: List<RecipeDBItem>
         ): RecipeListFragment {
             val fragment = RecipeListFragment()
             val bundle = Bundle()
             bundle.run {
-                putParcelableArrayList(ARGS_RECIPES, ArrayList(recipes))
+                putParcelableArrayList(ARGS_RECIPES, ArrayList(recipeDBItems))
             }
             fragment.arguments = bundle
             return fragment
@@ -36,17 +36,17 @@ class RecipeListFragment : Fragment() {
     ): View? {
         val view = inflater.inflate(R.layout.fragment_recipes, container, false)
         val rv = view.findViewById<RecyclerView>(R.id.recipes_list)
-        val recipes = arguments?.getParcelableArrayList<Recipe>(ARGS_RECIPES)
+        val recipes = arguments?.getParcelableArrayList<RecipeDBItem>(ARGS_RECIPES)
             ?: throw IllegalArgumentException("Missing recipes argument")
-        //val adapter = RecipeSearchAdapter(context, recipes) { position ->
-          //  showDetailsFragment(recipes, position)
-        //}
-        //rv.adapter = adapter
+        val adapter = RecipeDBAdapter(context, recipes) { position ->
+            showDetailsFragment(recipes, position)
+        }
+        rv.adapter = adapter
 
         return view
     }
 
-    private fun showDetailsFragment(recipes: List<Recipe>, position: Int) {
-        changeFragment(context, RecipeFragment.newInstance(recipes[position]))
+    private fun showDetailsFragment(recipeDBItems: List<RecipeDBItem>, position: Int) {
+        changeFragment(context, RecipeFragment.newInstance(recipeDBItems[position]))
     }
 }

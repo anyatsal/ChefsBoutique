@@ -23,6 +23,7 @@
         </activity>
         <activity android:name=".activity.LoginActivity"/>
         <activity android:name=".activity.SearchActivity" />
+        <activity android:name=".activity.CreateRecipeActivity" />
     </application>
 
 </manifest>

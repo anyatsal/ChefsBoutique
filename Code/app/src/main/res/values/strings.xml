@@ -23,4 +23,7 @@
     <string name="ingredients">Ingredients</string>
     <string name="recipe_description">Description</string>
     <string name="recipe_image">Recipe image</string>
+    <string name="take_photo">Take a photo</string>
+    <string name="choose_from_gallery">Choose photo from gallery</string>
+    <string name="cancel">Cancel</string>
 </resources>

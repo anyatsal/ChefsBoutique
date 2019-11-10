@@ -10,6 +10,7 @@ import by.anyatsal.chefsboutique.data.DBHelper
 import kotlinx.android.synthetic.main.fragment_create_recipe.*
 
 class CreateRecipeFragment: Fragment(), View.OnClickListener {
+
     companion object {
         fun newInstance(recipeDBHelper: DBHelper) =
             CreateRecipeFragment()

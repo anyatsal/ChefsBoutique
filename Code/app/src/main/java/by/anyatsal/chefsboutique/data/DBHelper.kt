@@ -18,7 +18,7 @@ class DBHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, null
         private val DATABASE_VERSION = 1
     }
 
-    fun insertRecipe(recipe: Recipe): Boolean {
+    fun insertRecipe(recipeDBItem: RecipeDBItem): Boolean {
         return true
     }
 
@@ -26,7 +26,7 @@ class DBHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, null
         return true
     }
 
-    fun readAllRecipes(): List<Recipe> {
+    fun readAllRecipes(): List<RecipeDBItem> {
         return ArrayList()
     }
 }

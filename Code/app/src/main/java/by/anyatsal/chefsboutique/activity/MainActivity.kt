@@ -7,7 +7,6 @@ import android.view.View
 import androidx.fragment.app.Fragment
 import by.anyatsal.chefsboutique.R
 import by.anyatsal.chefsboutique.data.DBHelper
-import by.anyatsal.chefsboutique.fragment.CreateRecipeFragment
 import by.anyatsal.chefsboutique.fragment.RecipeListFragment
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_main.*
@@ -78,9 +77,7 @@ class MainActivity : BaseActivity() {
     override fun onClick(v: View?) {
         when(v) {
             fab -> {
-                changeFragment(this, CreateRecipeFragment.newInstance(recipeDBHelper))
-                //startActivity(LoginActivity.getLaunchIntent(this))
-                //mAuth?.signOut()
+                startActivity(CreateRecipeActivity.getLaunchIntent(this))
             }
             else -> {
                 startActivity(SearchActivity.getLaunchIntent(this))
