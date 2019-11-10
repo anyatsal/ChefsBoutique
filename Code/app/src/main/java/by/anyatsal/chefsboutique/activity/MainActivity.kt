@@ -1,20 +1,28 @@
 package by.anyatsal.chefsboutique.activity
 
+import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import by.anyatsal.chefsboutique.R
-import by.anyatsal.chefsboutique.data.DBHelper
+import by.anyatsal.chefsboutique.data.Recipe
 import by.anyatsal.chefsboutique.fragment.RecipeListFragment
+import by.anyatsal.chefsboutique.list.RecipesAdapter
+import by.anyatsal.chefsboutique.list.RecipesViewModel
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : BaseActivity() {
 
     private lateinit var mAuth: FirebaseAuth
-    private lateinit var recipeDBHelper: DBHelper
+    private lateinit var recipesViewModel: RecipesViewModel
+    private val newRecipesActivityRequestCode = 1
 
     companion object {
 
@@ -35,9 +43,17 @@ class MainActivity : BaseActivity() {
         setContentView(R.layout.activity_main)
 
         mAuth = FirebaseAuth.getInstance()
+        isLogged()
 
-        recipeDBHelper = DBHelper(this)
+        val recyclerView = findViewById<RecyclerView>(R.id.rv_recipe_list)
+        val adapter = RecipesAdapter(this)
+        recyclerView.adapter = adapter
+        recyclerView.layoutManager = LinearLayoutManager(this)
 
+        recipesViewModel = ViewModelProvider(this).get(RecipesViewModel::class.java)
+        recipesViewModel.recipes.observe(this, Observer { recipes ->
+            recipes?.let { adapter.setRecipes(recipes) }
+        })
         //setSupportActionBar(bottom_app_bar)
 
         fab.setOnClickListener(this)
@@ -51,7 +67,7 @@ class MainActivity : BaseActivity() {
 
     private fun isLogged() {
         mAuth.currentUser?.uid?.let {
-            changeFragment(this, RecipeListFragment.newInstance(recipeDBHelper.readAllRecipes()))
+            changeFragment(this, RecipeListFragment.newInstance())
         } ?: startActivity(LoginActivity.getLaunchIntent(this))
     }
 
@@ -75,13 +91,27 @@ class MainActivity : BaseActivity() {
     }
 
     override fun onClick(v: View?) {
-        when(v) {
+        when (v) {
             fab -> {
-                startActivity(CreateRecipeActivity.getLaunchIntent(this))
+                val intent = Intent(this, CreateRecipeActivity::class.java)
+                startActivityForResult(intent, newRecipesActivityRequestCode)
             }
             else -> {
                 startActivity(SearchActivity.getLaunchIntent(this))
             }
+        }
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, intentData: Intent?) {
+        super.onActivityResult(requestCode, resultCode, intentData)
+
+        if (requestCode == newRecipesActivityRequestCode && resultCode == Activity.RESULT_OK) {
+            val recipe = intentData?.getParcelableExtra<Recipe>(CreateRecipeActivity.EXTRA_REPLY)
+            if (recipe != null) {
+                recipesViewModel.insert(recipe)
+            }
+        } else {
+
         }
     }
 }
