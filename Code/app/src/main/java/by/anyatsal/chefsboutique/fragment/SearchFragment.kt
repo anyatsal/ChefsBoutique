@@ -47,7 +47,7 @@ class SearchFragment : Fragment(), View.OnClickListener {
 
     override fun onClick(v: View?) {
         when {
-            //recipe_name.text.isNullOrEmpty() -> showMessageIfEmpty(v)
+            recipe_name.text.isNullOrEmpty() -> showMessageIfEmpty(v)
             else -> startSearch(v, recipe_name.text.toString())
         }
     }
@@ -59,10 +59,14 @@ class SearchFragment : Fragment(), View.OnClickListener {
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe(
                 { result ->
-                    run {
+                    if (result.recipes.isNullOrEmpty()) {
+                        showMessage(v, "The result set is empty")
+                        progressbar.visibility = View.GONE
+                        return@subscribe
+                    } else {
                         changeFragment(
                             context,
-                            RecipeListFragment.newInstance(result.recipes!!)
+                            RecipeSearchFragment.newInstance(result.recipes!!)
                         )
                     }
                 },

@@ -10,7 +10,7 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import by.anyatsal.chefsboutique.R
 import by.anyatsal.chefsboutique.data.Recipe
-import com.squareup.picasso.Picasso
+import coil.api.load
 
 class RecipeFragment : Fragment() {
 
@@ -47,11 +47,11 @@ class RecipeFragment : Fragment() {
                 view.findViewById<TextView>(R.id.recipe_ingredients).text = ingredients
                 view.findViewById<TextView>(R.id.recipe_description).text = description
                 view.findViewById<TextView>(R.id.recipe_category).text = category
-                Picasso.get().load(imageRes).into(view.findViewById<ImageView>(R.id.img_recipe))
+                view.findViewById<ImageView>(R.id.img_recipe).load(imageRes)
             }
             else {
-                val webView = view.findViewById<WebView>(R.id.recipe_web_view)
-                webView.loadUrl(url)
+                //val webView = view.findViewById(R.id.recipe_web_view)
+                //webView.loadUrl(url)
             }
         }
     }
