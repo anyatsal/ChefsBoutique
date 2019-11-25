@@ -15,7 +15,7 @@
 
 # 1 Введение  
 
-Данный документ описывает план тестирования приложения ["MinskLandmarks"](https://github.com/shishov1610/MinskLandmarks/blob/master/Documentation/Requirements/Requirements%20Document.md).
+Данный документ описывает план тестирования приложения ["MinskLandmarks"](https://github.com/shishov1610/MinskLandmarks).
 
 <a name="items"/>  
 
